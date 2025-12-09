@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://ded7bhg7xivyq"]
+
+[ext_resource type="Script" uid="uid://dithho6sv8ppf" path="res://scenes/target/target.gd" id="1_vqq33"]
+[ext_resource type="Texture2D" uid="uid://buobqxd1io8v7" path="res://assets/images/crosshairs_tilesheet_white.png" id="2_vdjv3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdnam"]
+atlas = ExtResource("2_vdjv3")
+region = Rect2(136, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jqea"]
+atlas = ExtResource("2_vdjv3")
+region = Rect2(68, 0, 68, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dx6ah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdnam")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jqea")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6p51"]
+size = Vector2(17.502, 11.1916)
+
+[node name="target" type="Area2D"]
+z_index = 5
+collision_mask = 10
+script = ExtResource("1_vqq33")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_dx6ah")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(3, -4.457)
+shape = SubResource("RectangleShape2D_s6p51")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

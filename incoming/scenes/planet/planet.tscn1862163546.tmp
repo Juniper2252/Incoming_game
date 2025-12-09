@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbbfcqf02w5e2"]
+
+[ext_resource type="Script" uid="uid://cw8ktklgwal1i" path="res://scenes/planet/planet.gd" id="1_pj04q"]
+[ext_resource type="Texture2D" uid="uid://ce82n33yf1dfx" path="res://assets/images/Terran.png" id="2_p483a"]
+[ext_resource type="Texture2D" uid="uid://6i1tqvpsm5e0" path="res://assets/images/TerranWhite.png" id="3_spfqd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xun4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p483a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_spfqd")
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6k40"]
+radius = 22.0
+
+[node name="Planet" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_pj04q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8xun4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e6k40")
+
+[node name="FreezeManager" type="Node2D" parent="."]
+process_mode = 2
+
+[node name="Timer" type="Timer" parent="FreezeManager"]
+wait_time = 0.1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="FreezeManager/Timer" to="FreezeManager" method="_on_timer_timeout"]

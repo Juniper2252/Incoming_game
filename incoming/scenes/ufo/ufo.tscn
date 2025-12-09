@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://bm52fck6mxp2v"]
+
+[ext_resource type="Script" uid="uid://mqrf60vcxkib" path="res://ufo.gd" id="1_1c2wj"]
+[ext_resource type="Texture2D" uid="uid://j21kvuolsnya" path="res://assets/UFO Asset Pack/draft/ufo/ufo_spritesheet.png" id="2_inf68"]
+[ext_resource type="Texture2D" uid="uid://rs05clmohfco" path="res://assets/bd1b1275fdc0ac1.png" id="3_kb22n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgq7v"]
+atlas = ExtResource("2_inf68")
+region = Rect2(0, 0, 66, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12583"]
+atlas = ExtResource("2_inf68")
+region = Rect2(66, 0, 66, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlsyt"]
+atlas = ExtResource("2_inf68")
+region = Rect2(132, 0, 66, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okojf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgq7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12583")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlsyt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpgs1"]
+radius = 31.727
+
+[sub_resource type="Gradient" id="Gradient_u722r"]
+offsets = PackedFloat32Array(0.672131, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vix5b"]
+gradient = SubResource("Gradient_u722r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kgkft"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_min = -194.8
+angle_max = 199.7
+direction = Vector3(0, 0, 0)
+radial_velocity_min = 75.0
+radial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.03
+color_ramp = SubResource("GradientTexture1D_vix5b")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+sub_emitter_keep_velocity = true
+
+[node name="UFO" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_1c2wj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_okojf")
+frame_progress = 0.407397
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_vpgs1")
+
+[node name="explosion" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("3_kb22n")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = true
+trail_lifetime = 1.0
+trail_sections = 2
+process_material = SubResource("ParticleProcessMaterial_kgkft")
+
+[connection signal="finished" from="explosion" to="." method="_on_explosion_finished"]

@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://co8ao62ohjxqn"]
+
+[ext_resource type="Script" uid="uid://eoa01eaia7mf" path="res://scenes/mainmenu/mainmenu.gd" id="1_ckupo"]
+[ext_resource type="Texture2D" uid="uid://dxa3qx2y31j3n" path="res://assets/images/bg/Animated/Strip And GIF/space2_4-frames.png" id="2_fi8nj"]
+[ext_resource type="FontFile" uid="uid://c1crhic08itij" path="res://assets/fonts/m6x11.ttf" id="3_xyqql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x7eg"]
+atlas = ExtResource("2_fi8nj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugunp"]
+atlas = ExtResource("2_fi8nj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5kud"]
+atlas = ExtResource("2_fi8nj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvrmg"]
+atlas = ExtResource("2_fi8nj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_542r0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x7eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugunp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5kud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvrmg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqxfm"]
+bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gim3"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ckupo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(18.41, 18.41)
+sprite_frames = SubResource("SpriteFrames_542r0")
+frame = 1
+frame_progress = 0.287605
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -530.0
+offset_top = -288.0
+offset_right = 517.0
+offset_bottom = -69.0
+theme_override_fonts/font = ExtResource("3_xyqql")
+theme_override_font_sizes/font_size = 250
+text = "INCOMING!!!"
+horizontal_alignment = 1
+
+[node name="Enter" type="Button" parent="."]
+offset_left = -75.0
+offset_top = -38.0
+offset_right = 79.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("3_xyqql")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_aqxfm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8gim3")
+text = "Play
+"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = -73.0
+offset_top = 58.0
+offset_right = 81.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("3_xyqql")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_aqxfm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8gim3")
+text = "Exit
+"
