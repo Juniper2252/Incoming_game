@@ -12,7 +12,7 @@ func _ready():
 	speed = rng.randf_range(10000,30000)*speedup*control
 	SignalManager.onDestroyed.connect(Destroyed)
 	$trail.direction = -global_position.direction_to(Vector2(0,0))
-	var sprite = rng.randi_range(0,1)
+	var sprite = rng.randi_range(0,100)
 	if sprite == 1:
 		$AnimatedSprite2D.play("new_animation")
 		particles = $explosion3
