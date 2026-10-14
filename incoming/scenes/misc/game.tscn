@@ -1,17 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://7hkvl7xkkaeo"]
+[gd_scene format=3 uid="uid://7hkvl7xkkaeo"]
 
-[ext_resource type="Script" uid="uid://b4mp7lk8sydv3" path="res://scenes/main.gd" id="1_iywne"]
+[ext_resource type="Script" uid="uid://b4mp7lk8sydv3" path="res://scenes/misc/main.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dbbfcqf02w5e2" path="res://scenes/planet/planet.tscn" id="1_pvpx0"]
 [ext_resource type="Texture2D" uid="uid://dxa3qx2y31j3n" path="res://assets/images/bg/Animated/Strip And GIF/space2_4-frames.png" id="2_csgm3"]
 [ext_resource type="PackedScene" uid="uid://ded7bhg7xivyq" path="res://scenes/target/target.tscn" id="4_4agl5"]
-[ext_resource type="Script" uid="uid://cc8ysnujnrtxw" path="res://scenes/CometSpawner.gd" id="4_8n76m"]
-[ext_resource type="Script" uid="uid://0mi100cvvlcm" path="res://scenes/freeze_manager.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://cc8ysnujnrtxw" path="res://scenes/misc/CometSpawner.gd" id="4_8n76m"]
+[ext_resource type="Script" uid="uid://0mi100cvvlcm" path="res://scenes/misc/freeze_manager.gd" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://b4lnap27ggtfh" path="res://assets/images/actual_frame.png" id="7_gee14"]
 [ext_resource type="Texture2D" uid="uid://db4rb8bofhj1k" path="res://assets/images/101.png" id="8_0tnpc"]
 [ext_resource type="FontFile" uid="uid://c1crhic08itij" path="res://assets/fonts/m6x11.ttf" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://fye85kbbmx5b" path="res://assets/images/New Piskel(2).png" id="9_vtaks"]
-[ext_resource type="Script" uid="uid://yxi7khq5o4tw" path="res://scenes/pause.gd" id="10_kvpfn"]
-[ext_resource type="Script" uid="uid://to054ju0bd6" path="res://scenes/ufospawner.gd" id="12_v6ljl"]
+[ext_resource type="Script" uid="uid://yxi7khq5o4tw" path="res://scenes/misc/pause.gd" id="10_kvpfn"]
+[ext_resource type="Script" uid="uid://to054ju0bd6" path="res://scenes/misc/ufospawner.gd" id="12_v6ljl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dyrl"]
 atlas = ExtResource("2_csgm3")

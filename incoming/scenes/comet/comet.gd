@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var rng = RandomNumberGenerator.new()
 var speed: float
-var cow = preload("res://assets/Untitled(1).png")
+var cow = preload("res://assets/images/Untitled(1).png")
 @onready var particles = $explosion
 var isDestroying = false
 

@@ -8,16 +8,19 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="incoming"
 run/main_scene="res://scenes/mainmenu/mainmenu.tscn"
-config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
 
-SignalManager="*res://scripts/signalManager.gd"
+SignalManager="*res://scenes/misc/signalManager.gd"
 
 [display]
 

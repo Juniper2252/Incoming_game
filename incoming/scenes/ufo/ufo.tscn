@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bm52fck6mxp2v"]
+[gd_scene format=3 uid="uid://bm52fck6mxp2v"]
 
-[ext_resource type="Script" uid="uid://mqrf60vcxkib" path="res://ufo.gd" id="1_1c2wj"]
+[ext_resource type="Script" uid="uid://mqrf60vcxkib" path="res://scenes/ufo/ufo.gd" id="1_1c2wj"]
 [ext_resource type="Texture2D" uid="uid://j21kvuolsnya" path="res://assets/UFO Asset Pack/draft/ufo/ufo_spritesheet.png" id="2_inf68"]
-[ext_resource type="Texture2D" uid="uid://rs05clmohfco" path="res://assets/bd1b1275fdc0ac1.png" id="3_kb22n"]
+[ext_resource type="Texture2D" uid="uid://rs05clmohfco" path="res://assets/images/bd1b1275fdc0ac1.png" id="3_kb22n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgq7v"]
 atlas = ExtResource("2_inf68")
